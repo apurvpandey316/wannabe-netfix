@@ -29,7 +29,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride('_method'))
-app.get('*', authController.checkUser);
+app.use('*', authController.checkUser);
 app.use('/movies', moviesRoutes)
 
 //routes
@@ -41,6 +41,6 @@ app.get('/logout', authController.logout);
 app.post('/profile',authController.loginorSignup, authController.getUser);
 //userRoutes
 app.get('/mylist',userController.getMyList);
-app.post('/mylist',authController.checkUser,userController.addToList);
-app.delete('/myList',authController.checkUser,userController.deleteFromList);
+app.post('/mylist',userController.addToList);
+app.delete('/myList',userController.deleteFromList);
 app.listen(process.env.PORT, () =>console.log(`Server running on port ${process.env.PORT}`));
