@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        .show-image{
+            margin: 0.5rem 0.5rem 0.5rem 1.25rem;
+            aspect-ratio:25/36;
+            background-repeat:no-repeat;
+            background-size: cover;
+            min-width: 30%;
+            min-height: calc(50*36/25%);
+            box-shadow: inset 0 0 1em white;
+            background-image: url(<%= image %>);
+        }
+    </style>
+    <link href="/css/navbar.css" rel="stylesheet" type="text/css">
+    <link href="/css/details.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%-  include('partials/_navbar.ejs') %>
+    <div class="container">
+        <div class="show-image">
+        </div>
+        <div class="show-details">
+            <div class="title">
+                <h1><%= item.name %></h1>
+            </div>
+            <div class="overview">
+                <p>Overview:<%= item.overview %></p>
+            </div>
+            <div class="release-date">
+                <h3>ReleaseYear:<%= item.first_air_date.split('-')[0]%></h3>
+            </div>
+            <div class="created-by">
+                CreatedBy:  <%= item.created_by.map(p => p.name).join(', ') %> 
+            </div>
+            <div class="rating">
+                <h3>RATING:<%= item.vote_average %>/10  </h3>
+            </div>
+            <div class="movie-link">
+                <form action="/myList" method="post">
+                    <a href = <%= item.homepage%> class="watch">Watch</a>
+                    <input type="search" name="id" id="data" value="tv-<%= item.id %>" style="display: none;">
+                    <button type="submit" class="watch" > Add to List</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

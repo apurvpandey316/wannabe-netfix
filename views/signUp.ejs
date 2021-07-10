@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/signUp.css">
+</head>
+<body>
+    <div class="signUp-title">
+        <h1>Register</h1>
+    </div>
+    <div class="signUp-form">
+        <form action="/profile" method="POST" id="register">
+            <div class="name form-element">
+                <label for="username">Username
+                    <br>
+                    <input type="text" name="username" id="username" autocomplete="off" placeholder="Enter Username">
+                </label>
+            </div>
+            <div class="email form-element">
+                <label for="email">Email
+                    <br>
+                    <input type="email" name="email" id="email" autocomplete="off" placeholder="Enter Email">
+                </label>
+            </div>
+            <div class="password form-element">
+                <label for="password">Password
+                    <br>
+                    <input type="password" name="password" id="password" autocomplete="off" placeholder="Enter Password"> 
+                </label>
+            </div>
+            <div class="confirmPassword form-element">
+                <label for="confirmPassword">Confirm Password
+                    <br>
+                    <input type="password" name="confirmPassword" id="confirmPassword" autocomplete="off" placeholder="Confirm Password">
+                </label>
+            </div>
+            <input type="text" name="type" id="type" autocomplete="off" value="signUp">
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

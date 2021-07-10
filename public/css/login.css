@@ -1,0 +1,91 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border box;
+}
+html{
+    background-color: black;
+    color: white;
+}
+.login-title{
+    font-size: 1.5rem;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    min-width: 100vw;
+}
+#login{
+    min-height: 40vh;
+    min-width: 25vw;
+    border: .1rem solid white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.form-element{
+    margin: 0 0 0 0.5rem;
+}
+label{
+    margin: 1.5rem 0.25rem;
+    font-size: 1.5rem;
+}
+input{
+    width: 20vw;
+    font-size: 1.25rem;
+    padding: 0.125rem 0.25rem;
+    margin: 0.125rem 0 0 0.25rem;
+    border: none;
+    border-radius: .5rem;
+}
+#type{
+    display: none;
+}
+button{
+    width: fit-content;
+    align-self: center;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 900;
+    background-color: red;
+    padding: 0.25rem;
+    border: red 0.25rem solid;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover{
+    opacity: 0.8;
+}
+.goto-signUp{
+    min-height: 15vh;
+    min-width: 25vw;
+    border: .1rem solid white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.registerLink{
+   text-align: center;
+}
+a{
+    text-decoration: none;
+    align-self: center;
+    font-size: 1rem;
+    color: black;
+    font-weight: 700;
+    background-color: lightblue;
+    padding: 0.15rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}

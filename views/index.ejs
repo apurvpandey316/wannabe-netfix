@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="/css/indexpage.css" rel="stylesheet" type="text/css">
+    <link href="/css/navbar.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body> 
+    <%-  include('partials/_navbar.ejs') %>
+    <div class="trending"><h1>Popular movies right now!!</h1></div>
+    <div class="slider">
+        <div class="left-button button-slider">
+            <hr class="button-line line1">
+            <hr class="button-line line2">
+        </div>
+        <div class="right-button button-slider">
+            <hr class="button-line line2">
+            <hr class="button-line line1">
+        </div>
+    </div>
+    <div class="trending"><h1>Tv Shows trending Right Now!!</h1></div>
+        <div class="show-tvshows">
+            <% tvshows.forEach((show,index)=> { %>
+                <div class="tv-show" style="background-image: url('https://image.tmdb.org/t/p/w300/<%=show.backdrop_path%>'); background-size: contain;">
+                    <div class="show-name">
+                        <h2><%= show.name %> </h2>
+                    </div>
+                    <div class="show-image">
+                        <form action='/movies/:id' method="get">
+                            <input type="search" name="movie-id" id="movie-id" value= <%= show.id %>>
+                            <!-- make the card detailed -->
+                            <button type="submit" class="movie-details"></button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+    </div>
+    <% movies.forEach(movie => { %>
+        <div class="moviesPopularData" data-name = "<%= movie.title %>" data-overview = "<%= movie.overview%>" data-rating ="<%= movie.vote_average%>" data-year= "<%= movie.release_date.split('-')[0]%>" data-trailer = "<%= movie.trailer%>" data-posterImage = "<%= movie.img_path%>" data-id = "<%= movie.id%>"></div>
+        <% }) %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/js/index.js" type="module"></script>
+</body>
+</html>

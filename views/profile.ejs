@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <%-  include('partials/_navbar.ejs') %>
+    <div class="welcome">
+        <h1>Good to see you, <%= user.username %>,</h1>
+        <h1>here is your list of <%= user.list.length %> movies</h1>
+    </div>
+    <div class="my-list">
+        <% if (user.list.length === 0) { %>
+         <h1 style="text-align: center;"> Your List is empty </h1>
+        <% } else { %>
+            <div class="results">
+            <% user.list.forEach(item => { %>
+                <div class="result-container">
+                    <div class="movie-image" style="background-image: url(<%=item.img_path%>); aspect-ratio: 78/117;
+                        min-height: 40vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                    </div>
+                    <div class="movie-data">
+                        <div class="title">
+                            <h2><%= item.title%></h2>
+                        </div>
+                        <div class="overview">
+                            <h4 class="block">Overview:</h4><h4 class="block"><%= item.overview%></h4>
+                        </div>
+                        <div class="release-year">
+                            <h4 class="block">Year: <%= item.year %></h5>
+                        </div>
+                        <div class="rating">
+                            <h5 class="block">Rating:  </h5><h4 class="block"><%= item.rating%>/10</h4>
+                        </div>
+                        <div class="delete">
+                            <form action="/myList?_method=DELETE" method="post">
+                            <input type="search" name="item" id="item" value="<%= item.id%>" style="display: none;">
+                            <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <% } %>  
+    </div>
+</body>
+</html>

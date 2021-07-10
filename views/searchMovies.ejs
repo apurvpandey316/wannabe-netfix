@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Movies</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link href="/css/search.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <%-  include('partials/_navbar.ejs') %>
+    <div class="heading">
+        <h1>Results matching your Search!!</h1>
+    </div>
+    <div class="results">
+        <% movies.forEach((movie,index)=> { %>
+            <div class="result-container">
+                <div class="movie-image" style="background-image: url(<%=moviesImages[index]%>); aspect-ratio: 2/3;
+                    min-height: 40vh; background-size: cover; background-repeat: no-repeat; background-position: center;">
+                </div>
+                <div class="movie-data">
+                    <div class="title">
+                        <h2><%= movie.title%></h2>
+                    </div>
+                    <div class="overview">
+                        <h4 class="block">Overview:</h4><h4 class="block"><%= movie.overview%></h4>
+                    </div>
+                    <div class="release-year">
+                        <h4 class="block">year:  <%= movie.release_date.split('-')[0] %></h5>
+                    </div>
+                    <div class="language">
+                        <h5 class="block">Lang:  </h5><h4 class="block"><%= movie.original_language%></h4>
+                    </div>
+                    <div class="rating">
+                        <h5 class="block">Rating:  </h5><h4 class="block"><%= movie.vote_average%>/10</h4>
+                    </div>
+                    <div class="votes">
+                        <h5 class="block">Votes:  </h5><h4 class="block"><%= movie.vote_count%></h4>
+                    </div>
+                    <div class="add-to-list">
+                        <form action="/myList" method="post">
+                            <input type="search" name="id" id="data" value="movie-<%= movie.id %>" style="display: none;">
+                            <button type ="submit" class="watch">Add to list</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <script src="/js/search.js"></script>
+</body>
+</html>

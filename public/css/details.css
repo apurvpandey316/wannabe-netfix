@@ -1,0 +1,49 @@
+.container{
+    display: flex;
+}
+.show-details{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    justify-content: space-around;
+}
+.title{
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.overview{
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+.release-date{
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+.created-by{
+    font-size: 1 rem;
+}
+.created-by>p{
+    display: inline;
+}
+.movie-link{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+.watch{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: inline;
+    width: fit-content;
+    padding: 0.125rem 0.375rem;
+    align-self: center;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border-radius: 0.25rem;
+    transition: 0.25s;
+    border: none;
+}
+.watch:hover{
+    opacity: 0.7;
+}
